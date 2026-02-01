@@ -19,7 +19,7 @@
         .serif-heading { font-family: 'Playfair Display', serif; font-weight: 700; }
         
         .glass-tile {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/background.jpg.jpeg');
+            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('images/background.jpg.jpeg');
             background-repeat: repeat;
             background-size: 250px;
             backdrop-filter: blur(12px);
@@ -126,7 +126,7 @@
     </main>
 
     <script>
-        const WHATSAPP_NUMBER = "918619703099"; 
+        const WHATSAPP_NUMBER = "918613703099"; 
 
         function scrollToSection(id) {
             const container = document.querySelector('.snap-container');
@@ -134,13 +134,13 @@
             container.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
         }
 
-        function generateProducts(containerId, count, category, folder, prefix, price, placeholderText) {
+        function generateProducts(containerId, count, category, folder, prefix, price, placeholder) {
             const container = document.getElementById(containerId);
             if(!container) return;
             
             for (let i = 1; i <= count; i++) {
                 const productId = `${prefix}-${i}`;
-                const imagePath = `images/${folder}/${prefix}${i}.jpg.jpeg`;
+                const imagePath = `images/${folder}/${prefix}${i}.jpg.jpeg`; 
                 
                 const card = document.createElement('div');
                 card.className = "bg-white/80 p-2 rounded-xl shadow-sm flex flex-col h-full border border-pink-100 backdrop-blur-sm group hover:shadow-md transition-all";
@@ -153,7 +153,7 @@
                         <p class="text-pink-600 font-extrabold text-[9px] md:text-sm mb-1.5">₹${price}</p>
                         <div class="mt-1 text-left">
                             <p class="text-[6px] text-pink-400 font-bold italic mb-0.5 uppercase tracking-tighter">Add your customizations:</p>
-                            <textarea id="note-${productId}" placeholder="${placeholderText}" class="w-full p-1 text-[8px] border border-pink-50 rounded bg-white/90 focus:bg-white focus:ring-1 focus:ring-pink-100 outline-none resize-none h-8 transition shadow-inner"></textarea>
+                            <textarea id="note-${productId}" placeholder="${placeholder}" class="w-full p-1 text-[8px] border border-pink-50 rounded bg-white/90 focus:bg-white focus:ring-1 focus:ring-pink-100 outline-none resize-none h-8 transition shadow-inner"></textarea>
                         </div>
                     </div>
                     <button onclick="orderProduct('${category} #${i}', ${price}, '${productId}')" class="w-full mt-2 py-1.5 bg-pink-500 hover:bg-pink-600 text-white rounded-lg text-[8px] font-bold uppercase active:scale-95 shadow-md transition-all">ORDER</button>
@@ -163,14 +163,15 @@
             injectFooter(containerId.replace('-grid', ''));
         }
 
+        // Updated footer to remove location
         function injectFooter(sectionId) {
             const footerContainer = document.getElementById('footer-' + sectionId);
             footerContainer.innerHTML = `
                 <div class="mt-auto pt-24 pb-12 text-center px-4">
                     <p class="serif-heading text-xl md:text-4xl text-pink-800 leading-tight">
-                        Thank you so much for supporting.<br>Every order truly means the world to me! 🧶💞
+                        Thank you for supporting us.<br>💞 Every order truly means the world to me! 🧶
                     </p>
-                    <p class="mt-10 text-[9px] opacity-40 uppercase tracking-[0.3em] font-bold text-pink-700">Crafted with Love</p>
+                    <p class="mt-10 text-[9px] opacity-40 uppercase tracking-[0.3em] font-bold text-pink-700">Handcrafted with Love</p>
                 </div>
             `;
             footerContainer.className = "mt-auto";
@@ -188,13 +189,14 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Updated WhatsApp logic with availability query
         function orderProduct(name, price, id) {
             const note = document.getElementById(`note-${id}`).value;
-            const message = `Hello! I would like to order from *Crafted with Love*:\n\n✨ *Product:* ${name}\n💰 *Price:* ₹${price}\n💖 *Details:* ${note || 'Standard design'}`;
+            const message = `Hello! I would like to order from *Crafted with Love*:\n\n✨ *Product:* ${name}\n💰 *Price:* ₹${price}\n💖 *Details:* ${note || 'Standard design'}\n\n*Please let me know if this is available.*`;
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // Initialize Store with specialized placeholders
+        // specialized placeholders and finalized counts
         generateProducts('covers-grid', 25, 'Phone Case', 'covers', 'phonecover', 300, 'eg. model, color, design etc.');
         generateProducts('keychains-grid', 30, 'Keychain', 'keychains', 'keychain', 150, 'eg. color, design etc.');
         generateProducts('flowers-grid', 10, 'Flower', 'flowers', 'flower', 200, 'eg. color, design etc.');
