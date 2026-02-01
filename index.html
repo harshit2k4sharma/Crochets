@@ -126,7 +126,7 @@
     </main>
 
     <script>
-        const WHATSAPP_NUMBER = "918613703099"; 
+        const WHATSAPP_NUMBER = "918619703099"; 
 
         function scrollToSection(id) {
             const container = document.querySelector('.snap-container');
@@ -156,14 +156,13 @@
                             <textarea id="note-${productId}" placeholder="${placeholder}" class="w-full p-1 text-[8px] border border-pink-50 rounded bg-white/90 focus:bg-white focus:ring-1 focus:ring-pink-100 outline-none resize-none h-8 transition shadow-inner"></textarea>
                         </div>
                     </div>
-                    <button onclick="orderProduct('${category} #${i}', ${price}, '${productId}')" class="w-full mt-2 py-1.5 bg-pink-500 hover:bg-pink-600 text-white rounded-lg text-[8px] font-bold uppercase active:scale-95 shadow-md transition-all">ORDER</button>
+                    <button onclick="orderProduct('${category} #${i}', ${price}, '${productId}')" class="w-full mt-2 py-1.5 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-[9px] font-bold uppercase active:scale-95 shadow-md transition-all">ORDER</button>
                 `;
                 container.appendChild(card);
             }
             injectFooter(containerId.replace('-grid', ''));
         }
 
-        // Updated footer to remove location
         function injectFooter(sectionId) {
             const footerContainer = document.getElementById('footer-' + sectionId);
             footerContainer.innerHTML = `
@@ -189,14 +188,12 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Updated WhatsApp logic with availability query
         function orderProduct(name, price, id) {
             const note = document.getElementById(`note-${id}`).value;
             const message = `Hello! I would like to order from *Crafted with Love*:\n\n✨ *Product:* ${name}\n💰 *Price:* ₹${price}\n💖 *Details:* ${note || 'Standard design'}\n\n*Please let me know if this is available.*`;
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // specialized placeholders and finalized counts
         generateProducts('covers-grid', 25, 'Phone Case', 'covers', 'phonecover', 300, 'eg. model, color, design etc.');
         generateProducts('keychains-grid', 30, 'Keychain', 'keychains', 'keychain', 150, 'eg. color, design etc.');
         generateProducts('flowers-grid', 10, 'Flower', 'flowers', 'flower', 200, 'eg. color, design etc.');
