@@ -62,7 +62,7 @@
         <div class="flex justify-center gap-4 md:gap-12 text-[10px] md:text-sm font-bold text-pink-700 uppercase tracking-widest overflow-x-auto whitespace-nowrap scrollbar-hide px-4">
             <button onclick="scrollToSection('covers')" class="hover:text-pink-500 transition">Phone Cases</button>
             <button onclick="scrollToSection('keychains')" class="hover:text-pink-500 transition">Keychains</button>
-            <button onclick="scrollToSection('hair-accessories')" class="hover:text-pink-500 transition">Hair</button>
+            <button onclick="scrollToSection('hair-accessories')" class="hover:text-pink-500 transition">Hair Accessories</button>
             <button onclick="scrollToSection('poshak')" class="hover:text-pink-500 transition">Poshak</button>
         </div>
     </nav>
@@ -104,33 +104,47 @@
     <script>
         const WHATSAPP_NUMBER = "918613703099";
 
-        // Phone Case Data updated to 35 items
         const phoneCaseData = [
             { id: 1, name: "Sweet Strawberry", price: 350 }, { id: 2, name: "Daisy Mist", price: 250 }, { id: 3, name: "Mulberry Mist", price: 250 },
             { id: 4, name: "Blue Blossom", price: 300 }, { id: 5, name: "Cherry Mist", price: 250 }, { id: 6, name: "Blooming Tulip", price: 300 },
-            { id: 7, name: "Sky Mist", price: 250 }, { id: 8, name: "Classic Bollywood", price: 300 }, { id: 9, name: "Floral Classic #9", price: 300 },
-            { id: 10, name: "Turtle Case", price: 300 }, { id: 11, name: "Handmade Shell #11", price: 300 }, { id: 12, name: "Pinky Bloom", price: 250 },
+            { id: 7, name: "Sky Mist", price: 250 }, { id: 8, name: "Classic Bollywood", price: 300 }, { id: 9, name: "Floral Classic", price: 300 },
+            { id: 10, name: "Turtle Case", price: 300 }, { id: 11, name: "Handmade Shell", price: 300 }, { id: 12, name: "Pinky Bloom", price: 250 },
             { id: 13, name: "Bow Case", price: 250 }, { id: 14, name: "Bunny Case", price: 300 }, { id: 15, name: "Daisy Garden", price: 250 },
-            { id: 17, name: "Mustard Bow", price: 270 }, { id: 18, name: "Cozy Crochet #18", price: 300 }, { id: 19, name: "Accorn Case", price: 300 },
+            { id: 17, name: "Mustard Bow", price: 270 }, { id: 18, name: "Cozy Crochet", price: 300 }, { id: 19, name: "Accorn Case", price: 300 },
             { id: 20, name: "Two Shades", price: 270 }, { id: 21, name: "Bow Case", price: 270 }, { id: 22, name: "Bunny Case 2", price: 300 },
             { id: 23, name: "Daisy Blossom", price: 250 }, { id: 24, name: "Bow Case 2", price: 250 }, { id: 25, name: "Panda Case", price: 300 },
             { id: 26, name: "Butterfly Case", price: 300 }, { id: 27, name: "The Red Bunny", price: 300 },
-            { id: 28, name: "Crochet Case #28", price: 300 }, { id: 29, name: "Crochet Case #29", price: 300 }, { id: 30, name: "Crochet Case #30", price: 300 },
-            { id: 31, name: "Crochet Case #31", price: 300 }, { id: 32, name: "Crochet Case #32", price: 300 }, { id: 33, name: "Crochet Case #33", price: 300 },
-            { id: 34, name: "Crochet Case #34", price: 300 }, { id: 35, name: "Crochet Case #35", price: 300 }
+            { id: 28, name: "The Cute Rabbit", price: 350 }, { id: 29, name: "Bunny Case 3", price: 320 }, { id: 30, name: "The Little Butterfly", price: 250 },
+            { id: 31, name: "Standard Case", price: 300 }, { id: 32, name: "Handmade Sheep", price: 270 }, { id: 33, name: "Red Bow", price: 250 },
+            { id: 34, name: "Bright Sunflower", price: 270 }, { id: 35, name: "The Black Beauty", price: 250 }
         ];
 
         const keychainData = [
-            { name: "Sunny Daisy #1", price: 100 }, { name: "Strawberry Heart #2", price: 200 }, { name: "Cotton Candy Cloud #3", price: 200 },
-            { name: "Bumblebee Buddy #4", price: 100 }, { name: "Pink Paw Print #5", price: 100 }, { name: "Minty Jellyfish #6", price: 150 },
-            { name: "Coco Bean Heart #7", price: 150 }, { name: "Midnight Star #8", price: 120 }, { name: "Daisy Doll #9", price: 120 },
-            { name: "Tiny Button nose #10", price: 100 }, { name: "Lavender Sprig #11", price: 200 }, { name: "Citrus Zing #12", price: 100 },
-            { name: "Mochi Octopus #13", price: 120 }, { name: "Forest Froggy #14", price: 150 }, { name: "Red Velvet Rose #15", price: 220 },
-            { name: "Bubblegum Bow #16", price: 150 }, { name: "Matcha Turtle #17", price: 150 }, { name: "Toasted Marshmallow #18", price: 200 },
-            { name: "Shiny Shell #19", price: 220 }, { name: "Prickly Pear Cactus #20", price: 150 }, { name: "Peach Sorbet #21", price: 150 },
-            { name: "Sky Swirl Whale #22", price: 220 }, { name: "Golden Sunflower #23", price: 200 }, { name: "Snowy Spark Bunny #24", price: 150 },
-            { name: "Tulip Pop #25", price: 100 }, { name: "Galaxy Swirl #26", price: 220 }, { name: "Ruby Tulip #27", price: 200 },
-            { name: "Ice Cream Cone #28", price: 100 }, { name: "Purple Dino #29", price: 200 }, { name: "Lilac Butterfly #30", price: 200 }
+            { name: "Sunny Daisy", price: 100 }, { name: "Strawberry Heart", price: 200 }, { name: "Cotton Candy Cloud", price: 200 },
+            { name: "Bumblebee Buddy", price: 100 }, { name: "Pink Paw Print", price: 100 }, { name: "Minty Jellyfish", price: 150 },
+            { name: "Coco Bean Heart", price: 150 }, { name: "Midnight Star", price: 120 }, { name: "Daisy Doll", price: 120 },
+            { name: "Tiny Button nose", price: 100 }, { name: "Lavender Sprig", price: 200 }, { name: "Citrus Zing", price: 100 },
+            { name: "Mochi Octopus", price: 120 }, { name: "Forest Froggy", price: 150 }, { name: "Red Velvet Rose", price: 220 },
+            { name: "Bubblegum Bow", price: 150 }, { name: "Matcha Turtle", price: 150 }, { name: "Toasted Marshmallow", price: 200 },
+            { name: "Shiny Shell", price: 220 }, { name: "Prickly Pear Cactus", price: 150 }, { name: "Peach Sorbet", price: 210 },
+            { name: "Sky Swirl Whale", price: 220 }, { name: "Golden Sunflower", price: 200 }, { name: "Snowy Spark Bunny", price: 150 },
+            { name: "Tulip Pop", price: 100 }, { name: "Galaxy Swirl", price: 220 }, { name: "Ruby Tulip", price: 200 },
+            { name: "Ice Cream Cone", price: 100 }, { name: "Purple Dino", price: 200 }, { name: "Lilac Butterfly", price: 200 },
+            { name: "Flower Keychain", price: 100 }
+        ];
+
+        const hairAccessoryData = [
+            { id: 1, name: "Flower clips (x2)", price: 80 }, { id: 2, name: "Blue parandi", price: 120 }, { id: 3, name: "Cherry", price: 100 },
+            { id: 4, name: "Gajra", price: 250 }, { id: 5, name: "Cute bows", price: 120 }, { id: 6, name: "butterfly Clutcher", price: 120 },
+            { id: 7, name: "White parandi", price: 120 }, { id: 8, name: "Daisy", price: 100 }, { id: 9, name: "Bow", price: 100 },
+            { id: 10, name: "Daisy", price: 80 }, { id: 11, name: "Flower Clutcher", price: 100 }, { id: 12, name: "The Red Bow", price: 150 },
+            { id: 13, name: "Bow 2", price: 100 }, { id: 14, name: "Fancy Bow", price: 200 }, { id: 15, name: "Flower clips (x2)", price: 50 },
+            { id: 16, name: "Flower Rubberband", price: 80 }, { id: 18, name: "Flower Hairpins", price: 100 }, { id: 19, name: "Little Bow", price: 50 },
+            { id: 20, name: "Bow rubberbands(x2)", price: 120 }, { id: 21, name: "Bow Clutchers", price: 80 }, { id: 22, name: "Flower clutcher2", price: 80 },
+            { id: 23, name: "Rose clutcher", price: 150 }, { id: 24, name: "Combo", price: 150 }, { id: 25, name: "Flower Clutcher3", price: 100 },
+            { id: 26, name: "Rose Rubberband", price: 100 }, { id: 27, name: "Sunflower clutcher", price: 80 }, { id: 28, name: "Scrunchie", price: 50 },
+            { id: 29, name: "Tulip Clutcher", price: 150 }, { id: 30, name: "Bow Clutcher", price: 100 }, { id: 31, name: "red flower clutcher", price: 100 },
+            { id: 32, name: "Sunflower clutcher", price: 150 }
         ];
 
         function scrollToSection(id) {
@@ -142,27 +156,50 @@
         function generateProducts(containerId, count, category, folder, prefix, basePrice, placeholder) {
             const container = document.getElementById(containerId);
             if(!container) return;
-            let itemsToLoop = count;
-            if (containerId === 'covers-grid') itemsToLoop = phoneCaseData.length;
+            let itemsToLoop = (containerId === 'covers-grid') ? phoneCaseData.length : 
+                             (containerId === 'keychains-grid') ? keychainData.length : 
+                             (containerId === 'hair-accessories-grid') ? hairAccessoryData.length : count;
 
             for (let i = 0; i < itemsToLoop; i++) {
-                let name, currentPrice, imgIndex;
+                let name, currentPrice, imgIndex, originalId;
                 if (containerId === 'covers-grid') {
                     name = phoneCaseData[i].name;
                     currentPrice = phoneCaseData[i].price;
                     imgIndex = phoneCaseData[i].id;
+                    originalId = phoneCaseData[i].id;
                 } else if (containerId === 'keychains-grid') {
                     name = keychainData[i].name;
                     currentPrice = keychainData[i].price;
                     imgIndex = i + 1;
+                    originalId = i + 1;
+                } else if (containerId === 'hair-accessories-grid') {
+                    name = hairAccessoryData[i].name;
+                    currentPrice = hairAccessoryData[i].price;
+                    imgIndex = hairAccessoryData[i].id;
+                    originalId = hairAccessoryData[i].id;
                 } else {
-                    name = `${category} #${i + 1}`;
+                    name = `${category}`;
                     currentPrice = basePrice;
                     imgIndex = i + 1;
+                    originalId = i + 1;
                 }
 
-                const productId = `${prefix}-${imgIndex}`;
+                const productId = `${prefix}-${originalId}`;
                 const imagePath = `images/${folder}/${prefix}${imgIndex}.jpg.jpeg`; 
+
+                let sizeLogic = "";
+                const clutcherIds = [6, 11, 21, 22, 23, 25, 29, 32];
+                if (containerId === 'hair-accessories-grid' && clutcherIds.includes(originalId)) {
+                    sizeLogic = `
+                        <div class="mt-2 text-left">
+                            <p class="text-[6px] text-pink-400 font-bold uppercase mb-1">Select Size:</p>
+                            <select id="size-${productId}" onchange="updateAccessoryPrice('${productId}', ${currentPrice})" class="w-full p-1 text-[8px] border border-pink-50 rounded bg-pink-50/50 outline-none">
+                                <option value="standard">Small Clutcher (₹${currentPrice})</option>
+                                <option value="premium">Big Clutcher (₹${currentPrice + 20})</option>
+                            </select>
+                        </div>
+                    `;
+                }
 
                 let priceLogic = "";
                 if (containerId === 'covers-grid') {
@@ -184,12 +221,12 @@
                         <img src="${imagePath}" onclick="openModal('${imagePath}')" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400?text=${category}'">
                     </div>
                     <div class="flex-grow px-1 text-center">
-                        <h3 class="font-bold text-gray-800 text-[10px] md:text-sm mb-1 uppercase tracking-tighter">${name}</h3>
+                        <h3 class="font-bold text-gray-800 text-[10px] md:text-sm mb-1 uppercase tracking-tighter">${i + 1}. ${name}</h3>
                         <p id="price-${productId}" class="text-pink-600 font-extrabold text-[11px] md:text-lg mb-2">₹${currentPrice}</p>
-                        ${priceLogic}
+                        ${priceLogic} ${sizeLogic}
                         <div class="mt-1 text-left">
                             <p class="text-[7px] text-pink-400 font-bold italic mb-1 uppercase tracking-tighter">Add customizations:</p>
-                            <textarea id="note-${productId}" placeholder="${placeholder}" class="w-full p-2 text-[9px] border border-pink-50 rounded bg-white/90 focus:bg-white outline-none resize-none h-10 transition shadow-inner"></textarea>
+                            <textarea id="note-${productId}" placeholder="${placeholder}" class="w-full p-2 text-[9px] border border-pink-50 rounded bg-white outline-none resize-none h-10 transition shadow-inner"></textarea>
                         </div>
                     </div>
                     <button onclick="orderProduct('${name}', ${currentPrice}, '${productId}', '${category}')" class="w-full mt-3 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-[10px] font-bold uppercase active:scale-95 shadow-md">ORDER</button>
@@ -203,6 +240,12 @@
             const select = document.getElementById(`type-${productId}`);
             const priceEl = document.getElementById(`price-${productId}`);
             priceEl.innerText = select.value === 'premium' ? `₹${base + 50}` : `₹${base}`;
+        }
+
+        function updateAccessoryPrice(productId, base) {
+            const select = document.getElementById(`size-${productId}`);
+            const priceEl = document.getElementById(`price-${productId}`);
+            priceEl.innerText = select.value === 'premium' ? `₹${base + 20}` : `₹${base}`;
         }
 
         function injectFooter(sectionId) {
@@ -223,25 +266,22 @@
 
         function orderProduct(name, price, id, category) {
             let finalPrice = price;
-            let deviceSuffix = "";
+            let suffix = "";
             if (category === 'Phone Case') {
                 const select = document.getElementById(`type-${id}`);
-                if (select.value === 'premium') {
-                    finalPrice = price + 50;
-                    deviceSuffix = " (Premium Model)";
-                }
+                if (select?.value === 'premium') { finalPrice = price + 50; suffix = " (Premium Model)"; }
+            } else if (category === 'Hair Accessory') {
+                const select = document.getElementById(`size-${id}`);
+                if (select?.value === 'premium') { finalPrice = price + 20; suffix = " (Big Size)"; }
             }
             const note = document.getElementById(`note-${id}`).value;
-            const message = `Hello! I would like to order from *Crafted with Love*:\n\n✨ *Product:* ${name}${deviceSuffix}\n💰 *Price:* ₹${finalPrice}\n💖 *Details:* ${note || 'Standard design'}\n\n*Please let me know if this is available.*`;
+            const message = `Hello! I would like to order from *Crafted with Love*:\n\n✨ *Product:* ${name}${suffix}\n💰 *Price:* ₹${finalPrice}\n💖 *Details:* ${note || 'Standard design'}\n\n*Please let me know if this is available.*`;
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         generateProducts('covers-grid', null, 'Phone Case', 'covers', 'phonecover', 300, 'eg. model, color, design etc.');
-        generateProducts('keychains-grid', 30, 'Keychain', 'keychains', 'keychain', 150, 'eg. color, design etc.');
-        
-        // Hair accessories updated to 32 items
-        generateProducts('hair-accessories-grid', 32, 'Hair Accessory', 'hair acessories', 'hairclip', 100, 'eg. color, design etc.');
-        
+        generateProducts('keychains-grid', 31, 'Keychain', 'keychains', 'keychain', 150, 'eg. color, design etc.');
+        generateProducts('hair-accessories-grid', null, 'Hair Accessory', 'hair acessories', 'hairclip', 100, 'eg. color, design etc.');
         generateProducts('poshak-grid', 20, 'Poshak', 'poshaks', 'poshak', 500, 'eg. color, design etc.');
     </script>
 </body>
